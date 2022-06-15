@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    android:label="@string/first_fragment_label"
+    app:startDestination="@id/FirstFragment">
+    <activity
+        android:id="@+id/cartTabActivity"
+        android:name="com.example.myrestaurant.CartTabActivity"
+        android:label="activity_cart_tab"
+        tools:layout="@layout/activity_cart_tab" />
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.myrestaurant.menus.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_FirstFragment_to_AntiPasto"
+            app:destination="@id/AntiPasto" />
+        <action
+            android:id="@+id/action_FirstFragment_to_steak"
+            app:destination="@id/steak" />
+        <action
+            android:id="@+id/action_FirstFragment_to_freshPasta"
+            app:destination="@id/freshPasta" />
+        <action
+            android:id="@+id/action_FirstFragment_to_tiramisu"
+            app:destination="@id/tiramisu" />
+        <action
+            android:id="@+id/action_FirstFragment_to_pizza"
+            app:destination="@id/pizza" />
+
+        <action
+            android:id="@+id/action_FirstFragment_to_cartTabActivity"
+            app:destination="@id/cartTabActivity" />
+        <action
+            android:id="@+id/action_FirstFragment_to_cartTabActivity2"
+            app:destination="@id/cartTabActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/AntiPasto"
+        android:name="com.example.myrestaurant.menus.AntiPasto"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/anti_pasto">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_itemDescription"
+            app:destination="@id/itemDescription" />
+        <action
+            android:id="@+id/action_AntiPasto_pop"
+            app:destination="@id/FirstFragment"
+            app:popUpTo="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/steak"
+        android:name="com.example.myrestaurant.menus.Steak"
+        android:label="@string/steak_menu"
+        tools:layout="@layout/steak">
+        <action
+            android:id="@+id/action_steak_to_itemDescription"
+            app:destination="@id/itemDescription" />
+        <action
+            android:id="@+id/action_steak_pop"
+            app:destination="@id/FirstFragment"
+            app:popUpTo="@id/FirstFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/freshPasta"
+        android:name="com.example.myrestaurant.menus.FreshPastaFrag"
+        android:label="@string/frestpasta"
+        tools:layout="@layout/fresh_pasta">
+        <action
+            android:id="@+id/action_freshPasta_to_itemDescription"
+            app:destination="@id/itemDescription" />
+        <action
+            android:id="@+id/action_freshPasta_pop"
+            app:popUpTo="@id/freshPasta"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/tiramisu"
+        android:name="com.example.myrestaurant.menus.Tiramisu"
+        android:label="@string/tiramenu"
+        tools:layout="@layout/tiramisu">
+        <action
+            android:id="@+id/action_tiramisu_to_itemDescription"
+            app:destination="@id/itemDescription" />
+        <action
+            android:id="@+id/action_tiramisu_pop2"
+            app:destination="@id/FirstFragment"
+            app:popUpTo="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pizza"
+        android:name="com.example.myrestaurant.menus.Pizza"
+        android:label="@string/pizza_menu"
+        tools:layout="@layout/pizza">
+        <action
+            android:id="@+id/action_pizza_to_itemDescription"
+            app:destination="@id/itemDescription" />
+        <action
+            android:id="@+id/action_pizza_pop"
+            app:popUpTo="@id/FirstFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/itemDescription"
+        android:name="com.example.myrestaurant.dialog.AddItemDialog"
+        android:label="ItemDescription"
+        tools:layout="@layout/item_description">
+        <action
+            android:id="@+id/action_itemDescription_pop"
+            app:popUpTo="@id/itemDescription"
+            app:popUpToInclusive="true" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/cartTabFrag"
+        android:name="com.example.myrestaurant.CartLists.CartTab"
+        android:label="fragment_cart_tab"
+        tools:layout="@layout/cart_tab_list">
+        <action
+            android:id="@+id/popFirst"
+            app:destination="@id/mainActivity"
+            app:popUpTo="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_cartTabFrag_to_cartTabActivity"
+            app:destination="@id/cartTabActivity" />
+        <action
+            android:id="@+id/action_cartTabFrag_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_cartTabFrag_pop"
+            app:popUpTo="@id/cartTabFrag"
+            app:popUpToInclusive="true"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_cartTabFrag_to_removeItemDialog"
+            app:destination="@id/removeItemDialog" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_cartTabActivity"
+        app:destination="@id/cartTabActivity"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.myrestaurant.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <action
+        android:id="@+id/action_global_mainActivity"
+        app:destination="@id/mainActivity" />
+    <fragment
+        android:id="@+id/itemTab"
+        android:name="com.example.myrestaurant.CartLists.ItemTab"
+        android:label="item_tab"
+        tools:layout="@layout/item_tab" >
+        <action
+            android:id="@+id/action_itemTab_to_cartTabActivity"
+            app:destination="@id/cartTabActivity" />
+        <action
+            android:id="@+id/action_itemTab_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <dialog
+        android:id="@+id/removeItemDialog"
+        android:name="com.example.myrestaurant.dialog.RemoveItemDialog"
+        android:label="remove_item_dialog"
+        tools:layout="@layout/remove_item_dialog" >
+        <action
+            android:id="@+id/action_removeItemDialog_to_cartTabFrag"
+            app:destination="@id/cartTabFrag" />
+    </dialog>
+
+</navigation>

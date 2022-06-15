@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/clear" android:title="@string/clear_cart"  android:icon="@drawable/ic_remove_cart_large"/>
+    <item android:id="@+id/back_home" android:title="@string/home" android:icon="@drawable/ic_home"/>
+</menu>
